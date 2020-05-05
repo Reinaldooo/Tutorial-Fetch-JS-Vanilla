@@ -3,18 +3,13 @@ const cardsContainer = document.querySelector("#cards");
 let data = [];
 
 async function fetchCards() {
-  return await fetch(apiUrl)
-    .then(async (r) => await r.json())
+  let response =  await fetch(apiUrl)
+  return await response.json()
 }
 
 function renderCards(cards) {
   cardsContainer.innerHTML = "";
-  // cards.map(renderCard);
-  let i = 0;
-  setInterval(() => {
-    renderCard(cards[i])
-    i++
-  }, 1000)
+  cards.map(renderCard);
 }
 
 function renderCard(card) {
