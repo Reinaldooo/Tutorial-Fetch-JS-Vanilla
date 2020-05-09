@@ -1,10 +1,15 @@
 const apiUrl = "https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72";
-const cardsContainer = document.querySelector("#cards");
 let data = [];
+const cardsContainer = document.querySelector("#cards");
 
 async function fetchCards() {
-  let response =  await fetch(apiUrl)
-  return await response.json()
+  try {
+    let response =  await fetch(apiUrl)
+    return await response.json()
+  } catch {
+    // Create error handling logic
+    console.log("Error")
+  }
 }
 
 function renderCards(cards) {
